@@ -1,4 +1,10 @@
-var JCCard = function () {
+//JCCard is a visual representation of a real world card. This card store image that
+//represent different state of the card.  The different state are face up, face down, and optional  blankface.
+//For example if you call face down method the
+//card will set as "down" position, then you can change the position to face up and will
+//display the "oder card face". You can set whatever you want for
+/*
+function  JCCard() {
   this.cards = [];  // array of image
   this.cardTag;     //String
   this.display;     //Point that switch to an element in the array of image
@@ -7,7 +13,6 @@ var JCCard = function () {
   this.blankFace;   //Point to an element in the array (image data)
   this.cardFlag;    //Indicate if a card have been eliminate or still active
 }
-
 //Set active or inactive state for the card
 JCCard.prototype.set_cardFlag = function( flag) {
   this.cardFlag = flag;
@@ -63,7 +68,7 @@ JCCard.prototype.get_face_Back = function () {
   return this.backFace;
 }
 JCCard.prototype.get_face_Display = function () {
-  if(!cardFlag) {
+  if(!this.cardFlag) {
     return this.blankFace;
   }else {
     return this.display;
@@ -72,10 +77,21 @@ JCCard.prototype.get_face_Display = function () {
 
 //For testing pourpose
 
-JCCard.prototype.showCard () {
-  if(!cardFlag){
+JCCard.prototype.showCard = function () {
+  if(!this.cardFlag){
     this.blankFace;
   }else {
     this.display
   }
+  console.log("hello");
 }
+*/
+
+
+
+
+
+$( document ).ready(function() {
+    // Exmaple code for write on a html document
+    //document.write("<p>Hello!!!!</p>");
+});
