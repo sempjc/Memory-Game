@@ -1,12 +1,24 @@
+//**********************************************************
+//
+//    JCCard represent the card of the memory game.
+//    JCCard store images for the diferent phase of
+//    the card (face up, face down and inactive).
+//
+//**********************************************************
 
-
-function  JCCard() {
-  this.currentFace;     //Store the current face of the card
-  this.imageFace;       //Store the image of the card when is face up and is active
-  this.backFace;        //Store the image of the card when is face down and active
-  this.blankFace;       //Store the image of the card when the card is inactive
-  this.cardActiveState; //Store the active/inactive states of the card
+function  JCCard(imageFace, backFace, blankFace) {
+  //Store the current face of the card
+  this.currentFace;
+  //Store the image of the card when is face up and is active
+  this.imageFace = imageFace;
+  //Store the image of the card when is face down and active
+  this.backFace = backFace;
+  //Store the image of the card when the card is inactive
+  this.blankFace = blankFace;
+  //Store the active/inactive states of the card
+  this.cardActiveState = true;
 }
+
 //Set active or inactive state for the card
 JCCard.prototype.set_cardActiveState = function(state) {
   this.cardActiveState = state;
