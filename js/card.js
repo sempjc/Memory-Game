@@ -1,10 +1,13 @@
-//**********************************************************
-//
-//    JCCard represent the card of the memory game.
-//    JCCard store images for the different phase of
-//    the card (face up, face down and inactive).
-//
-//**********************************************************
+/**********************************************************
+
+    JCCard represent the card of the memory game.
+    JCCard store images for the different phase of
+    the card (face up, face down and inactive).
+    This object has methods for setter and getter for the
+    different property. And to main function for manage the
+    face-up and face-down of the card.
+
+************************************************************/
 
 function  JCCard(imageFace, backFace, blankFace) {
   //Store the current face of the card
@@ -55,11 +58,11 @@ JCCard.prototype.get_currentFace = function(){
   return this.currentFace;
 }
 //When this method is evoke, will set the currentFace
-//property to display the card face up
+//property to display the card image
 JCCard.prototype.faceUP = function() {
-  //Check if the card is active or not
+  //Check the active state of the card
+  //if true, assing the imageFace to the currentFace property
   if(cardActiveState){
-    //if true, assing the imageFace to the currentFace property
     this.currentFace = this.imageFace;
   }
   else {
@@ -67,8 +70,10 @@ JCCard.prototype.faceUP = function() {
     this.currentFace = this.blankFace;
   }
 }
-//Set face Down
+//When this method is evoke, will set the currentFace
+//property to display the backface
 JCCard.prototype.faceDOWN = function() {
+  //Check the active state of the card
   //if true, assing the backFace to the currentFace property
   if(cardActiveState){
     this.currentFace = this.backFace;
