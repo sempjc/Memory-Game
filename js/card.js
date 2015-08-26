@@ -42,7 +42,7 @@ JCCard.prototype.get_BlankFace = function () {
   return this.blankFace;
 }
 //Set the image face, when the card is face up and active
-JCCard.prototype.set_ImgeFace = function(image) {
+JCCard.prototype.set_ImageFace = function(image) {
   this.imageFace = image;
 }
 //Get the image of the imageFace property
@@ -65,7 +65,7 @@ JCCard.prototype.get_currentFace = function(){
 JCCard.prototype.faceUP = function() {
   //Check the active state of the card
   //if true, assing the imageFace to the currentFace property
-  if(cardActiveState){
+  if(this.cardActiveState === true){
     this.currentFace = this.imageFace;
   }
   else {
@@ -78,7 +78,7 @@ JCCard.prototype.faceUP = function() {
 JCCard.prototype.faceDOWN = function() {
   //Check the active state of the card
   //if true, assing the backFace to the currentFace property
-  if(cardActiveState){
+  if(this.cardActiveState === true){
     this.currentFace = this.backFace;
   }
   else {
@@ -91,9 +91,10 @@ JCCard.prototype.faceDOWN = function() {
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    !!Only for testing erase/comment code when finish!!
+    !!Only for testing comment code when finish!!
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*
 var main = function(){
     //Pre-test:
     //Create 3 variable with the path of the image file
@@ -114,33 +115,41 @@ var main = function(){
     //Call setters and getters methods
 //*****************************************************
     //Test 3 edit card2 images (using setters)
-    card2.set_ImgeFace('/images/octocat.png');
+    card2.set_ImageFace('/images/octocat.png');
     card2.set_BackFace('/images/JavaScript.png');
     card2.set_BlankFace('/images/apple.png');
     //Test 4 use the getter methods and store each value
     //in a variable (look the value on the console)
     var getImg1 = card2.get_ImageFace();
-    var getbackface = card2.get_ImageFace();
-    var getblankface = card2.get_ImageFace();
-    var activeState = card2.get_ImageFace();
+    var getbackface = card2.get_BackFace();
+    var getblankface = card2.get_BlankFace();
+    var activeState = card2.get_cardActiveState();
+    console.log(getImg1);
+    console.log(getbackface);
+    console.log(getblankface);
+    console.log(activeState);
     console.log("section 2 pass");
 
     //Test Active state, Face up and Face Down methods
 //*****************************************************
     //Test 5 Change card2 cardActiveState to false
-    card2.cardActiveState(false);
+    card2.set_cardActiveState(false);
     //Test 6 Call FaceUp methods on both cards
     card1.faceUP();
     card2.faceUP();
     //Test 7 Call get_currentFace on both cards
     var currentUP1 = card1.get_currentFace();
     var currentUP2 = card2.get_currentFace();
+    console.log('currentUP1 '+currentUP1);
+    console.log('currentUP2 '+currentUP2);
     //Test 8 Call FaceDown method on both cards
     card1.faceDOWN();
     card2.faceDOWN();
     //Test 9 Call get_currentFace on both cards
     var currentDOWN1 = card1.get_currentFace();
     var currentDOWN2 = card2.get_currentFace();
+    console.log('currentDOWN1 '+currentDOWN1);
+    console.log('currentDOWN2 '+currentDOWN2);
     console.log("section 3 pass");
  }
-main();
+main();*/
