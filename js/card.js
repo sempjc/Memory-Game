@@ -1,97 +1,65 @@
-//JCCard is a visual representation of a real world card. This card store image that
-//represent different state of the card.  The different state are face up, face down, and optional  blankface.
-//For example if you call face down method the
-//card will set as "down" position, then you can change the position to face up and will
-//display the "oder card face". You can set whatever you want for
-/*
+
+
 function  JCCard() {
-  this.cards = [];  // array of image
-  this.cardTag;     //String
-  this.display;     //Point that switch to an element in the array of image
-  this.image;       //Point to an element in the array (image data)
-  this.backFace;    //Point to an element in the array (image data)
-  this.blankFace;   //Point to an element in the array (image data)
-  this.cardFlag;    //Indicate if a card have been eliminate or still active
+  this.currentFace;     //Store the current face of the card
+  this.imageFace;       //Store the image of the card when is face up and is active
+  this.backFace;        //Store the image of the card when is face down and active
+  this.blankFace;       //Store the image of the card when the card is inactive
+  this.cardActiveState; //Store the active/inactive states of the card
 }
 //Set active or inactive state for the card
-JCCard.prototype.set_cardFlag = function( flag) {
-  this.cardFlag = flag;
+JCCard.prototype.set_cardActiveState = function(state) {
+  this.cardActiveState = state;
 }
-JCCard.prototype.get_cardFlag = function() {
-  return this.cardFlag;
+//Get the card state
+JCCard.prototype.get_cardActiveState = function() {
+  return this.cardActiveState;
 }
-
-//A string that describe a tag (this will use for comparison between to card)
-JCCard.prototype.set_cardTag = function(tag) {
-  this.cardTag = tag;
-}
-JCCard.prototype.get_cardTag = function() {
-  return this.cardTag;
-}
-
 //Set to each variable an image
-JCCard.prototype.set_face_Blank = function(index_of_aCard) {
-  this.blankFace = this.cards[index_of_aCard];
+JCCard.prototype.set_BlankFace = function(image) {
+  this.blankFace = image;
 }
-JCCard.prototype.set_face_Img = function(index_of_aCard) {
-  this.img = this.cards[index_of_aCard];
-}
-JCCard.prototype.set_face_Back = function(index_of_aCard) {
-  this.backFace = this.cards[index_of_aCard];
-}
-
-//Set fae
-JCCard.prototype.set_face_UP = function() {
-  if(cardFlag){
-    this.display = this.img;
-  }
-  else {
-    this.display = this.blankFace;
-  }
-}
-JCCard.prototype.set_face_DOWN = function() {
-  if(cardFlag){
-    this.display = this.backFace;
-  }
-  else {
-    this.display = this.blankFace;
-  }
-}
-
-JCCard.prototype.get_face_Blank = function () {
+//Get the image of the blankFace property
+JCCard.prototype.get_BlankFace = function () {
   return this.blankFace;
 }
-JCCard.prototype.get_face_Img = function () {
-  return this.img;
+//Set the image face, when the card is face up and active
+JCCard.prototype.set_ImgeFace = function(image) {
+  this.imageFace = image;
 }
-JCCard.prototype.get_face_Back = function () {
+//Get the image of the imageFace property
+JCCard.prototype.get_ImageFace = function () {
+  return this.imageFace;
+}
+//Set the image face, when the card is face down and active
+JCCard.prototype.set_BackFace = function(image) {
+  this.backFace = image;
+}
+//Get the image of the backFace property
+JCCard.prototype.get_BackFace = function () {
   return this.backFace;
 }
-JCCard.prototype.get_face_Display = function () {
-  if(!this.cardFlag) {
-    return this.blankFace;
-  }else {
-    return this.display;
+//When this method is evoke, will set the currentFace
+//property to display the card face up
+JCCard.prototype.faceUP = function() {
+  //Check if the card is active or not
+  if(cardActiveState){
+    //if true, assing the imageFace to the currentFace property
+    this.currentFace = this.imageFace;
+  }
+  else {
+    //if not, assing the blankFace to the currentFace property
+    this.currentFace = this.blankFace;
   }
 }
-
-//For testing pourpose
-
-JCCard.prototype.showCard = function () {
-  if(!this.cardFlag){
-    this.blankFace;
-  }else {
-    this.display
+//Set face Down
+JCCard.prototype.faceDOWN = function() {
+  //if true, assing the backFace to the currentFace property
+  if(cardActiveState){
+    this.currentFace = this.backFace;
   }
-  console.log("hello");
+  else {
+    //if not, assing the blankFace to the currentFace property
+    this.currentFace = this.blankFace;
+  }
 }
-*/
-
-
-
-
-
-$( document ).ready(function() {
-    // Exmaple code for write on a html document
-    //document.write("<p>Hello!!!!</p>");
-});
