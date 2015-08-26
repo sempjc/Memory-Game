@@ -1,5 +1,7 @@
 /**********************************************************
-
+Title:      card.js
+Program:    Memory Game
+Description:
     JCCard represent the card of the memory game.
     JCCard store images for the different phase of
     the card (face up, face down and inactive).
@@ -7,6 +9,7 @@
     different property. And to main function for manage the
     face-up and face-down of the card.
 
+Created by: Jean Carlos Semprit Rodriguez
 ************************************************************/
 
 function  JCCard(imageFace, backFace, blankFace) {
