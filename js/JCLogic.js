@@ -2,7 +2,13 @@
 Title:      JCLogic.js
 Program:    Memory Game
 Description:
-
+            JCLogic manage the game logic. This logic
+            is for game like Memory Game where you try to find
+            the same pair of card. This logic is designed for a
+            game where you win after discover all the pair of card.
+            So endGameCondition = array.length / 2. Take special care to create an array with even number!!!.
+            Also this logic include methods for shuffle arrays.
+            The initializeCard Method configure your card in one call. The parameter he expect is the image face of the card, back face and blank face.
 
 Created by: Jean Carlos Semprit Rodriguez
 ***************************************************/
@@ -92,7 +98,6 @@ JCLogic.prototype.shuffle = function( contentArray ){
     contentArray[k] = temp;                   //4.
   }
   //Debug
-  console.log(contentArray);
   return contentArray;
 }
 //Method for initialized the card array and assing the image variable
@@ -101,6 +106,6 @@ JCLogic.prototype.initializeCard = function(contentArray, backimg, blankFace){
   //Start the shuffle of the image
   contentArray = this.shuffle(contentArray);
   for(var i = 0; i < contentArray.length; i++){
-    cardDeck[i].imageFace = new JCCard(contentArray[i], backimg, blankFace );
+    this.cardDeck.push((new JCCard(contentArray[i], backimg, blankFace )));
   }
 }
