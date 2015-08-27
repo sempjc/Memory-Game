@@ -6,7 +6,6 @@ Description:
 
 Created by: Jean Carlos Semprit Rodriguez
 ***************************************************/
-
 function JCLogic (){
   //This property indicate the state of the game loop
   //While gameOver is false the game will continue
@@ -69,7 +68,6 @@ JCLogic.prototype.compare2Card = function(){
   //If false return isEqual = false
   return isEqual;
 }
-
 //Shuffle an array
 JCLogic.prototype.shuffle = function( contentArray ){
   //initialize variables to zero
@@ -97,7 +95,6 @@ JCLogic.prototype.shuffle = function( contentArray ){
   console.log(contentArray);
   return contentArray;
 }
-
 //Method for initialized the card array and assing the image variable
 JCLogic.prototype.initializeCard = function(contentArray, backimg, blankFace){
   //contentArray is an array of image, the image is represent by a url string
