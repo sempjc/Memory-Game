@@ -18,7 +18,7 @@ function JCLogic (){
   this.gameOverState = false;
   //This property count the number of card the player choose for guest,
   //the maximum number of card is 2 then this property is reset to zero
-  this.choiceCounter = 0;
+  this.choiceCounter = 1;
   //Store the id of the first selected card choose by the user
   this.choice1;
   //Store the id of the second selected card choose by the user
@@ -29,13 +29,21 @@ function JCLogic (){
   //Array of card, you need to assign an initialized array of card
   this.cardDeck = [];
 }
+//Set the choiceCounter property
+JCLogic.prototype.set_choiceCounter = function(turn){
+  this.choiceCounter = turn;
+}
+//Get the value assigned to choiceCounter property
+JCLogic.prototype.get_choiceCounter = function(){
+  return this.choiceCounter;
+}
 //Set the choice1 property with the value of the first selected card
 JCLogic.prototype.set_choice1 = function(selectedCard){
   this.choice1 = selectedCard;
 }
 //Get the value assigned to choice1 property
 JCLogic.prototype.get_choice1 = function(){
-  return choice1;
+  return this.choice1;
 }
 //Set the choice2 property with the value of the first selected card
 JCLogic.prototype.set_choice2 = function(selectedCard){
@@ -43,7 +51,7 @@ JCLogic.prototype.set_choice2 = function(selectedCard){
 }
 //Get the value assigned to choice2 property
 JCLogic.prototype.get_choice2 = function(){
-  return choice2;
+  return this.choice2;
 }
 //Set or change the gameOverState property
 JCLogic.prototype.set_gameOverState = function(gameOverState){
@@ -58,16 +66,20 @@ JCLogic.prototype.get_gameOverState = function(){
 JCLogic.prototype.check_endGame_condition = function(currentCondition){
   if (this.endGameCondition === currentCondition){
     //Change the value to true
-    return gameOverState = true;
+    return this.gameOverState = true;
   }
   //The default value is false
-  return gameOverState;
+  return this.gameOverState;
 }
 //Compare if two car are equal or different
 JCLogic.prototype.compare2Card = function(){
   var isEqual = false;
   //Test if the two card selected are equal
-  if (cardDeck[choice1].imageFace === cardDeck[choice2].imageFace){
+  //1. Flip face up the two cards
+  //2. Evaluate equality
+  //3. If equal set to blankFace and set inactive the two cards
+  //4. If not flip face down the two cards
+  if (this.cardDeck[(this.choice1)].get_ImageFace() === this.cardDeck[(this.choice2)].get_ImageFace()){
     //If true the assign true to the isEqual variable
     return isEqual = true;
   }
