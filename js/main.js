@@ -35,7 +35,7 @@ $( document ).ready(function() {
       if(game.get_choiceCounter() === 1){
         game.set_choice1(event.target.id);    //assign the id number to choice1
         //flip up the card in the position of choice1
-        game.cardDeck[game.get_choice1].faceUP();
+        game.cardDeck[game.get_choice1()].faceUP();
         game.set_choiceCounter(2);    //Set choiceCounter to 2
       }
       //If player has already choose one and now is selecting
@@ -46,18 +46,19 @@ $( document ).ready(function() {
         //If not the same (result in true) then compare the 2 card
         if(game.get_choice1() !== game.get_choice2()){
           //Flip up the second card
-          game.cardDeck[game.get_choice2].faceUp();
+          game.cardDeck[game.get_choice2()].faceUP();
           if(game.compare2Card()){
             //Eliminate cardDeck
-            game.cardDeck[game.get_choice1].set_cardActiveState(false);
-            game.cardDeck[game.get_choice2].set_cardActiveState(false);
+            game.cardDeck[game.get_choice1()].set_cardActiveState(false);
+            game.cardDeck[game.get_choice2()].set_cardActiveState(false);
             //Increase match
           }
         }
+        //Flip card down
+        game.cardDeck[game.get_choice1()].faceDOWN();
+        game.cardDeck[game.get_choice2()].faceDOWN();
       }
-    //Flip card down
-    game.cardDeck[game.get_choice1].faceDOWN();
-    game.cardDeck[game.get_choice2].faceDOWN();
+
     if(game.get_choice1() !== game.get_choice2()){
       //increase moves
     }
