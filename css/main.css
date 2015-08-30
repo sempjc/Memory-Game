@@ -16,40 +16,12 @@ body {
   margin: auto;
 }
 .card {
-  background: red;
+  height: 80px;
+  width: 80px;
+  background: url('/images/back.png');
+  background-size:80px 80px;
   box-shadow: 0px 0px 5px;
   border-radius: 10px;
-  height: 80px;
-  width: 80px;
   margin: 10px;
   padding: 0;
-}
-
-.backface {
-  background: url("/speaking.png")160px 170px;
-}
-
-.img1 {
-  background: url("/images/apple.png");
-  height: 80px;
-  width: 80px;
-}
-
-.img2 {
-  background: url("/images/css3.png");
-}
-
-.img3 {
-  background: url("/images/HTML5.png");
-}
-
-.img4 {
-  background: url("/images/JavaScript.png");
-}
-
-.img5 {
-  background: url("/images/octocat.png");
-}
-.img6 {
-  background: url("/images/slack.png");
 }
