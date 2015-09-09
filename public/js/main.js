@@ -7,15 +7,15 @@ $( document ).ready(function() {
   //Create an array of pair of images
   //This will be the image the player need to guess
   var sourceIMG = [
-    "/images/apple.png",
-    "/images/css3.png",
-    "/images/octocat.png",
-    "/images/slack.png",
-    "/images/HTML5.png",
-    "/images/JavaScript.png",
+    "/images/img1.png",
+    "/images/img2.png",
+    "/images/img3.png",
+    "/images/img4.png",
+    "/images/img5.png",
+    "/images/img6.png",
   ];
   var backFace = '/images/back.png';
-  var blankFace = '/images/blanck.png';
+  var blankFace = '/images/blanck1.png';
   //The for loop will fill the empty imageFaces array with a pair of image
   //Variable i will increment the index of imageFaces
   //Variable img will increment the index of sourceIMG
