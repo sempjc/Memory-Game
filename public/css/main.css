@@ -5,10 +5,13 @@ body {
   width: 320px;
   box-shadow: 0px 0px 5px;
   border-radius: 10px;
-  background: violet;
+  background: #004558;
   text-align: center;
   padding: 0;
-  margin: 70px auto auto;
+}
+
+.text-white {
+  color:white;
 }
 
 .card-row {
@@ -28,4 +31,18 @@ body {
 
 .board-bg {
   background:#004558;
+}
+
+.score-board {
+  margin-top: 50px !important;
+  margin-bottom: 10px !important;
+  border-radius: 0px !important;
+  height: 50px;
+  margin: auto;
+  background-color: #13B0DD;
+}
+
+.valing-center-text {
+  padding-top:10px;
+  vertical-align: middle;
 }

@@ -42,7 +42,7 @@ JCScore.prototype.compute_score = function(){
     return 0;
   }
   //calculate the score and return his value
-  return ((this.match / this.moves) * 1000);
+  return   Math.floor(((this.match / this.moves) * 1000));
 }
 //Increase the movesby one
 JCScore.prototype.movesincrease_by_one = function(){

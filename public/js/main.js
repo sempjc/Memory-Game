@@ -1,6 +1,9 @@
-function updateCard(htmlDOM, choice, cardArray){
+function updateCard(htmlDOM, choice, cardArray, score){
   var img = 'url('+cardArray[choice].get_currentFace()+')';
   $('#'+choice).css({ "background": img, "background-size": "80px 80px" });
+  $('#mv').text(score.get_moves());
+  $('#mch').text(score.get_match());
+  $('#pt').text(score.compute_score());
 }
 //Main function-----------------------------------
 $( document ).ready(function() {
@@ -34,7 +37,7 @@ $( document ).ready(function() {
   //Put all card face down
   for (var i = 0; i < imageFaces.length; i++){
     game.cardDeck[i].faceDOWN();
-    updateCard($('#'+i), i, game.cardDeck);
+    updateCard($('#'+i), i, game.cardDeck, score);
   }
 
   //Event listener when user click on card
@@ -47,8 +50,7 @@ $( document ).ready(function() {
         //flip up the card in the position of choice1 to updated currentFace
         game.cardDeck[game.get_choice1()].faceUP();
         //Draw the currentFace
-        updateCard(this, game.get_choice1(), game.cardDeck);
-        // $(this).css({ "background": img1, "background-size": "80px 80px" });
+        updateCard(this, game.get_choice1(), game.cardDeck, score);
         game.set_choiceCounter(2);    //Set choiceCounter to 2
       }
       //If player has already choose one and now is selecting
@@ -60,7 +62,7 @@ $( document ).ready(function() {
         if(game.get_choice1() !== game.get_choice2()){
           //Flip up the second card to updated currentFace
           game.cardDeck[game.get_choice2()].faceUP();
-          updateCard(this, game.get_choice2(), game.cardDeck);
+          updateCard(this, game.get_choice2(), game.cardDeck, score);
           //If the two card have the same image, then eliminate
           if(game.cardDeck[game.get_choice1()].get_cardActiveState() && game.cardDeck[game.get_choice1()].get_cardActiveState()){
             if(game.compare2Card()){
@@ -79,9 +81,9 @@ $( document ).ready(function() {
           //Delay for 1 second
           setTimeout(function (){
             game.cardDeck[game.get_choice1()].faceDOWN();
-            updateCard(this, game.get_choice1(), game.cardDeck);
+            updateCard(this, game.get_choice1(), game.cardDeck, score);
             game.cardDeck[game.get_choice2()].faceDOWN();
-            updateCard(this, game.get_choice2(), game.cardDeck);
+            updateCard(this, game.get_choice2(), game.cardDeck, score);
           }, 1000);
         }
       }
