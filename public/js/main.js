@@ -39,54 +39,54 @@ $( document ).ready(function() {
     game.cardDeck[i].faceDOWN();
     updateCard($('#'+i), i, game.cardDeck, score);
   }
-
-  //Event listener when user click on card
-  $('.card').on('click',function(event){
-    //Evaluate if the user already choose two cards
-    //If Only one is selected (choiceCounter = 1)
-    //then skip the evaluation
-      if(game.get_choiceCounter() === 1){
-        game.set_choice1(event.target.id);    //assign the id number to choice1
-        //flip up the card in the position of choice1 to updated currentFace
-        game.cardDeck[game.get_choice1()].faceUP();
-        //Draw the currentFace
-        updateCard(this, game.get_choice1(), game.cardDeck, score);
-        game.set_choiceCounter(2);    //Set choiceCounter to 2
-      }
-      //If player has already choose one and now is selecting
-      //the second card (choiceCounter = 2) evaluate if the two card is equal
-      else {
-        game.set_choice2(event.target.id);  //assign to choice2 the value of id
-        //evaluate if the to card are the same or not
-        //If not the same then compare the 2 card
-        if(game.get_choice1() !== game.get_choice2()){
-          //Flip up the second card to updated currentFace
-          game.cardDeck[game.get_choice2()].faceUP();
-          updateCard(this, game.get_choice2(), game.cardDeck, score);
-          //If the two card have the same image, then eliminate
-          if(game.cardDeck[game.get_choice1()].get_cardActiveState() && game.cardDeck[game.get_choice1()].get_cardActiveState()){
-            if(game.compare2Card()){
-              //Eliminate cardDeck
-              game.cardDeck[game.get_choice1()].set_cardActiveState(false);
-              game.cardDeck[game.get_choice2()].set_cardActiveState(false);
-              //Increase match
-              score.match_increase_by_one();
-              console.log('match increase by one');
-            }
+  
+    //Event listener when user click on card
+    $('.card').on('click',function(event){
+      //Evaluate if the user already choose two cards
+      //If Only one is selected (choiceCounter = 1)
+      //then skip the evaluation
+        if(game.get_choiceCounter() === 1){
+          game.set_choice1(event.target.id);    //assign the id number to choice1
+          //flip up the card in the position of choice1 to updated currentFace
+          game.cardDeck[game.get_choice1()].faceUP();
+          //Draw the currentFace
+          updateCard(this, game.get_choice1(), game.cardDeck, score);
+          game.set_choiceCounter(2);    //Set choiceCounter to 2
         }
-          score.movesincrease_by_one();  //increase score
-          console.log('move increase by one');
-          game.set_choiceCounter(1);    //Reset to 1 choiceCounter
-          //Flip card down
-          //Delay for 1 second
-          setTimeout(function (){
-            game.cardDeck[game.get_choice1()].faceDOWN();
-            updateCard(this, game.get_choice1(), game.cardDeck, score);
-            game.cardDeck[game.get_choice2()].faceDOWN();
+        //If player has already choose one and now is selecting
+        //the second card (choiceCounter = 2) evaluate if the two card is equal
+        else {
+          game.set_choice2(event.target.id);  //assign to choice2 the value of id
+          //evaluate if the to card are the same or not
+          //If not the same then compare the 2 card
+          if(game.get_choice1() !== game.get_choice2()){
+            //Flip up the second card to updated currentFace
+            game.cardDeck[game.get_choice2()].faceUP();
             updateCard(this, game.get_choice2(), game.cardDeck, score);
-          }, 1000);
+            //If the two card have the same image, then eliminate
+            if(game.cardDeck[game.get_choice1()].get_cardActiveState() && game.cardDeck[game.get_choice1()].get_cardActiveState()){
+              if(game.compare2Card()){
+                //Eliminate cardDeck
+                game.cardDeck[game.get_choice1()].set_cardActiveState(false);
+                game.cardDeck[game.get_choice2()].set_cardActiveState(false);
+                //Increase match
+                score.match_increase_by_one();
+                console.log('match increase by one');
+              }
+          }
+            score.movesincrease_by_one();  //increase score
+            console.log('move increase by one');
+            game.set_choiceCounter(1);    //Reset to 1 choiceCounter
+            //Flip card down
+            //Delay for 1 second
+            setTimeout(function (){
+              game.cardDeck[game.get_choice1()].faceDOWN();
+              updateCard(this, game.get_choice1(), game.cardDeck, score);
+              game.cardDeck[game.get_choice2()].faceDOWN();
+              updateCard(this, game.get_choice2(), game.cardDeck, score);
+            }, 1000);
+          }
         }
-      }
-  });
+    });
   console.log('finish load');
 });
